@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# audio 
+pipewire &
+sleep 0.5
+wireplumber &
+
+# mpd
+mpd &
+
+# compositor
+xcompmgr -c &
+
+# notification server
+dunst &
+
+# display resolution
+# insert your xrandr commands here
+
+# fuck capslock
+setxkbmap -option caps:none
+
+# wallpaper
+wallpaper
+
+# execute dwm
+while true; do
+    dwm >/dev/null 2>&1
+done

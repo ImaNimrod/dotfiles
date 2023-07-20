@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+# make ls nicer to use
+alias ls='ls -hF --color=auto --group-directories-first'
+
+# colorize grep output
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# sane defaults / safety nets
+alias mkdir='mkdir -pv'
+alias rm='rm -I --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# human readable output
+alias df='df -H'
+alias du='du -ch'
+
+# no wget HSTS
+alias wget='wget --no-hsts'
+
+# neovim on top
+alias vim='nvim'
