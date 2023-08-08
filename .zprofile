@@ -19,7 +19,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK_THEME=Adwaita:dark
 export LESSHISTFILE="-"
 export NO_AT_BRIDGE=1 
-export PASSWORD_STORAGE_DIR="$XDG_DATA_HOME/password-store"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # automatically start X on current tty if not already running
