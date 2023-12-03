@@ -2,8 +2,8 @@
 nimrod's own dotfiles
 
 ## package dependencies
-These are the arch-linux specific package names for all of the dependencies and programs I use:
-`pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip xcompmgr libxft libxrandr zsh pipewire
+This is a command for installing all of my required packages on arch-based distros:
+`pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft libxrandr zsh pipewire
 pipewire-alsa wireplumber scrot dunst libnotify mpd mpc ncmpcpp htop lm_sensors 
 neovim ripgrep ttf-mononoki-nerd zathura zathura-pdf-poppler git`
 
