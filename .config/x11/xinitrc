@@ -9,7 +9,7 @@ wireplumber &
 mpd &
 
 # compositor
-xcompmgr -c &
+picom -c --no-fading-openclose --backend glx &
 
 # notification server
 dunst &
@@ -20,7 +20,7 @@ dunst &
 # fuck capslock
 setxkbmap -option caps:none
 
-# wallpaper
+# set wallpaper
 wallpaper
 
 # execute dwm

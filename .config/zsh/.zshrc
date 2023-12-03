@@ -3,7 +3,11 @@ autoload -U colors && colors
 stty stop undef
 setopt interactive_comments
 
+# prompt configuration
+setopt prompt_subst prompt_percent transient_rprompt
+
 # remove history limit and store history in .cache directory
+setopt extended_history hist_ignore_all_dups hist_ignore_space inc_append_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
@@ -44,3 +48,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
+
+# no more C-s or C-q
+setopt no_flow_control
