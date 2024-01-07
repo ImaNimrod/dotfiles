@@ -3,6 +3,7 @@
 # audio 
 pipewire &
 sleep 0.5
+pipewire-pulse &
 wireplumber &
 
 # mpd
