@@ -14,7 +14,8 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export GTK_THEME=Adwaita:dark
+export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export GTK_THEME="Adwaita:dark"
 export LESSHISTFILE="-"
 export NO_AT_BRIDGE=1 
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
