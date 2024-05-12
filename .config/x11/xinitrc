@@ -15,6 +15,9 @@ picom -c --no-fading-openclose --backend glx &
 # notification server
 dunst &
 
+# statusbar
+dwmstatus &
+
 # display resolution
 # insert your xrandr commands here
 

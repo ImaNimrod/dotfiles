@@ -5,6 +5,7 @@ setopt interactive_comments
 
 # prompt configuration
 setopt prompt_subst prompt_percent transient_rprompt
+export PROMPT="[%n@%m:%~]"$'\n'"$ "
 
 # remove history limit and store history in .cache directory
 setopt extended_history hist_ignore_all_dups hist_ignore_space inc_append_history
