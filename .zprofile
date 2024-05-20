@@ -21,6 +21,10 @@ export NO_AT_BRIDGE=1
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# mpd host config
+export MPD_HOST="MPD SERVER IP ADDRESS"
+export MPD_PORT="MPD SERVER PORT"
+
 # add ~/.local/bin and cargo directory to path
 export PATH="$CARGO_HOME/bin:$PATH:${$(find $HOME/.local/bin -type d -printf %p: )%%:}"
 
