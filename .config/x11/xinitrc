@@ -1,13 +1,19 @@
 #!/bin/sh
 
+### ONLY UNCOMMENT THESE LINES ON NON-SYSTEMD LINUX DISTROS ###
+#
 # audio 
-pipewire &
-sleep 0.5
-pipewire-pulse &
-wireplumber &
-
+# pipewire &
+# sleep 0.5
+# pipewire-pulse &
+# wireplumber &
+#
 # mpd
-mpd &
+# [ ! -s ~/.config/mpd/pid ] && mpd
+###############################################################
+
+# display configuration
+############## INSERT YOUR XRANDR COMMANDS HERE ###############
 
 # compositor
 picom -c --no-fading-openclose --backend glx &
@@ -17,9 +23,6 @@ dunst &
 
 # statusbar
 dwmstatus &
-
-# display resolution
-# insert your xrandr commands here
 
 # fuck capslock
 setxkbmap -option caps:none
