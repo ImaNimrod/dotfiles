@@ -16,7 +16,7 @@
 ############## INSERT YOUR XRANDR COMMANDS HERE ###############
 
 # compositor
-picom -c --no-fading-openclose --backend glx &
+picom &
 
 # notification server
 dunst &
