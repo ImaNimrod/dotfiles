@@ -1,4 +1,8 @@
 #!/bin/sh
 
-notify-send "Now Playing:" "$(mpc | awk 'NR==1')"
-exit 0
+state=$(mpc status -f %state%)
+if [[ "$state" = "playing" || "$state" = "paused" ]]; then
+    notify-send "Now Playing:" "$(mpc -f %name%)"
+else
+    notify-send "Nothing currently playing"
+fi

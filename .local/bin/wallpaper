@@ -1,12 +1,9 @@
 #!/bin/sh
 
-wallpaper_dir="${XDG_DATA_HOME:-$HOME/.local/share/}/wallpapers"
+readonly WALLPAPER_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/wallpapers"
 
-if [ -z "$1" ]
-then
-    xwallpaper --zoom $(find "$wallpaper_dir" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
-    exit 0
+if [ -z "$1" ]; then
+    xwallpaper --zoom $(find $WALLPAPER_DIR -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
+else
+    xwallpaper --zoom $1
 fi
-
-xwallpaper --zoom $1
-exit 0

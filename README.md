@@ -4,7 +4,7 @@ nimrod's own dotfiles
 ## package dependencies
 This is a command for installing all of the required packages on Arch-based Linux distros:
 
-`pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft libxrandr zsh pipewire pipewire-alsa pipewire-pulse wireplumber pipewire-roc scrot dunst libnotify mpd mpc ncmpcpp htop lm_sensors neovim ripgrep ttf-mononoki-nerd zathura zathura-pdf-poppler git sxiv`
+`pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber pipewire-roc maim dunst libnotify mpd mpc ncmpcpp htop lm_sensors neovim ripgrep ttf-mononoki-nerd zathura zathura-pdf-poppler git nsxiv`
 
 These packages do not include any of the packages required for the basic system install.
 Brave broswer can be acquired through the AUR packages `brave` or `brave-bin`.

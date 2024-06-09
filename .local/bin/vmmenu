@@ -1,45 +1,29 @@
 #!/bin/sh
 
-action=$(echo -e "Launch a VM\nView a VM\nShutdown a VM" | dmenu -c -l 3 -p "Choose an action:")
-
+action=$(echo -e "Launch a VM\nView a VM\nShutdown a VM" | dmenu -i -c -l 3 -p "Choose an action:")
 case $action in
     "Launch a VM") 
         list=$(sudo -A virsh list --all | cut -b 7- | sed 's/........$//' | tail -n +3 | sed 's/ *$//g')
-        if [ -z "$list" ]; then
-            notify-send "VM Menu:" "No virtual machines found"
-            exit 1
-        fi
+        [ -z "$list" ] && notify-send "VM Menu:" "No virtual machines found" && exit 1
 
-        vm=$(echo -e "${list[@]}" | dmenu -c -l 10 -p "Choose a VM to launch:")
-        [[ -z "$vm" ]] && exit 1;
-
+        vm=$(echo -e "${list[@]}" | dmenu -i -c -l 10 -p "Choose a VM to launch:") || exit 1
         sudo -A virsh start --domain $vm
         ;;
     "View a VM") 
         list=$(sudo -A virsh list | cut -b 7- | sed 's/........$//' | tail -n +3 | sed 's/ *$//g')
-        if [ -z "$list" ]; then
-            notify-send "VM Menu:" "No virtual machines running"
-            exit 1
-        fi
+        [ -z "$list" ] && notify-send "VM Menu:" "No virtual machines running" && exit 1
 
-        vm=$(echo -e "${list[@]}" | dmenu -c -l 10 -p "Choose a VM to view:")
+        vm=$(echo -e "${list[@]}" | dmenu -i -c -l 10 -p "Choose a VM to view:")
         [[ -z "$vm" ]] && exit 1;
 
-        virt-viewer -c qemu:///system $vm
+        virt-viewer -c qemu:///system "$vm"
         ;;
     "Shutdown a VM") 
         list=$(sudo -A virsh list | cut -b 7- | sed 's/........$//' | tail -n +3 | sed 's/ *$//g')
-        if [ -z "$list" ]; then
-            notify-send "VM Menu:" "No virtual machines running"
-            exit 1
-        fi
+        [ -z "$list" ] && notify-send "VM Menu:" "No virtual machines running" && exit 1
 
-        vm=$(echo -e "${list[@]}" | dmenu -c -l 10 -p "Choose a VM to shutdown:")
-        [[ -z "$vm" ]] && exit 1
-
-        method=$(echo -e "Regular\nAgent\nForce off\n" | dmenu -c -l 3 -p "Choose a method:")
-        [[ -z "$method" ]] && exit 1
-
+        vm=$(echo -e "${list[@]}" | dmenu -i -c -l 10 -p "Choose a VM to shutdown:") || exit 1
+        method=$(echo -e "Regular\nAgent\nForce off\n" | dmenu -i -c -l 3 -p "Choose a method:") || exit 1
         case $method in
             "Regular")
                 sudo -A virsh shutdown --mode acpi --domain $vm
@@ -53,5 +37,3 @@ case $action in
         esac
         ;;
 esac
-
-exit 0

@@ -1,9 +1,6 @@
 #!/bin/sh
 
+set -e
+
 manual=$(man -k . | awk '{print $1 " " $2}' | dmenu -l 20 -c | awk '{print $1}')
-
-if [[ ! -z "$manual" ]]; then
-    eval "$(man -Tpdf $manual | zathura -)"
-fi
-
-exit 0
+eval "$(man -Tpdf $manual | zathura -)"
