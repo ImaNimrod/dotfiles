@@ -1,18 +1,19 @@
 #!/bin/sh
 
-screenshot_dir="${XDG_DATA_HOME:-$HOME/.local/share/}/screenshots"
+readonly SCREENSHOT_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/screenshots"
 
-file=$(dmenu -c -p "Enter the name of the screenshot:" <&-)
-
-if [ $? -eq 0 ]
-then
-    scrot -s -i $screenshot_dir/$file.png
-
-    if [ $? -eq 0 ]
-    then
-        notify-send "Screenshot" "Screenshot saved to $file.png"
-        exit 0
-    fi
-fi
-
-exit 1
+choice=$(echo -e "Fullscreen (file)\nSelected area (file)\nFullscreen (clipboard)\nSelected area (clipboard)" | dmenu -c -i -l 4 -p "Screenshot:")
+case $choice in
+    "Fullscreen (file)")
+        maim -q -d 0.2 "$SCREENSHOT_DIR/screenshot-$(date '+%Y-%m-%d_%H.%M.%S').png"
+        ;;
+    "Selected area (file)")
+        maim -u -s "screenshot-$(date '+%Y-%m-%d_%H.%M.%S').png"
+        ;;
+    "Fullscreen (clipboard)")
+        maim -q -d 0.2 | xclip -sel clip -t image/png
+        ;;
+    "Selected area (clipboard)")
+        maim -u -s | xclip -sel clip -t image/png
+        ;;
+esac
