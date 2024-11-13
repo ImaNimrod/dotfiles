@@ -27,6 +27,9 @@ dwmstatus &
 # fuck capslock
 setxkbmap -option caps:none
 
+# automatically run screen locker
+xautolock -time 2 -locker slock
+
 # set wallpaper
 wallpaper
 
