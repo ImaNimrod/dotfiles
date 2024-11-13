@@ -15,6 +15,8 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export SSH_ASKPASS="$HOME/.local/bin/dmenupass"
+export SSH_ASKPASS_REQUIRE="prefer"
 export GTK_THEME="Adwaita:dark"
 export LESSHISTFILE="-"
 export NO_AT_BRIDGE=1 
