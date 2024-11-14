@@ -14,6 +14,7 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export SSH_ASKPASS="$HOME/.local/bin/dmenupass"
 export SSH_ASKPASS_REQUIRE="prefer"
