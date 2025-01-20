@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+action=$(echo -e "Lock\nReboot\nShutdown" | dmenu -i -c -l 3 -p "Choose an action:")
+case $action in
+    "Lock")
+        slock
+        ;;
+    "Reboot")
+        notify-send "Reboot initiated" "Rebooting in 5 seconds..."
+        sleep 5
+        sudo -A reboot
+        ;;
+    "Shutdown")
+        notify-send "Shutdown initiated" "Shutting down in 5 seconds..."
+        sleep 5
+        sudo -A poweroff
+        ;;
+esac
