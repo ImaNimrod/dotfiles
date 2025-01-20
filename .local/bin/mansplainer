@@ -3,4 +3,5 @@
 set -e
 
 manual=$(man -k . | awk '{print $1 " " $2}' | dmenu -l 20 -c | awk '{print $1}')
+[ -z "$manual" ] && exit 1
 eval "$(man -Tpdf $manual | zathura -)"
