@@ -8,13 +8,9 @@ case $action in
         slock
         ;;
     "Reboot")
-        notify-send "Reboot initiated" "Rebooting in 5 seconds..."
-        sleep 5
         sudo -A reboot
         ;;
     "Shutdown")
-        notify-send "Shutdown initiated" "Shutting down in 5 seconds..."
-        sleep 5
         sudo -A poweroff
         ;;
 esac
