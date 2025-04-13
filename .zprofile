@@ -22,6 +22,8 @@ export GTK_THEME="Adwaita:dark"
 export LESSHISTFILE="-"
 export NO_AT_BRIDGE=1 
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # mpd host config
