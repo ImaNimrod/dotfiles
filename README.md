@@ -1,43 +1,59 @@
 # dotfiles
 nimrod's own dotfiles
 
-## package dependencies
-This is a command for installing all of the required packages on Arch-based Linux distros:
+## Installing dependencies
 
-`pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber pipewire-roc maim dunst libnotify mpd mpc ncmpcpp htop lm_sensors neovim ripgrep ttf-mononoki-nerd zathura zathura-pdf-poppler git nsxiv`
+These are the commands for installing all of the required packages on Arch-based Linux distros:
 
-These packages do not include any of the packages required for the basic system install.
-Brave broswer can be acquired through the AUR packages `brave` or `brave-bin`.
+```bash
+pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber pipewire-roc maim dunst libnotify mpd mpc ncmpcpp htop lm_sensors ripgrep ttf-mononoki-nerd git nsxiv
 
-## enabling services (systemd)
-mpd:
+# AUR packages
+paru -S brave-bin neovim-git
+```
 
-`systemctl --user enable --now mpd.service`
+## Display configuration (Xorg)
 
-`systemctl --user enable --now mpd.socket`
+Depending on the number and/or orientation of your displays, you should add the appropriate
+`xrandr` commands to `.config/x11/xinitrc`.
 
-pipewire:
+Examples: 
 
-`systemctl --user enable --now pipewire.socket`
+```bash
+xrandr --output DisplayPort-0 --auto
 
-`systemctl --user enable --now pipewire-pulse.socket`
+xrandr --output HDMI-A-0 --right-of DisplayPort-0 --rotate right
+```
 
-`systemctl --user enable --now wireplumber.service`
+## MPD configuration
+
+In `.zprofile`, set `MPD_HOST` and `MPD_PORT` to the appropriate values for either the local or
+remote MPD server instance. In `.config/pipewire/pipewire.conf.d/roc-sink.conf`, change the line
+containing `remote.ip` to the IP address of the device to receive audio.
 
 ## ROC configuration
-Depending on whether your computer is the roc source or the sink, you only should
-keep the appropriate pipewire configuration file. If your computer is the ROC sink, you should remove the `.config/pipewire/pipewire.conf.d/roc-source.conf` file.
 
-## configuring hosts
-In `.zprofile`, set `MPD_HOST` and `MPD_PORT` to the appropriate values for the running mpd server instance.
-In `.config/pipewire/pipewire.conf.d/roc-sink.conf`, change the line containing `remote.ip` to the IP address of
-the device to receive audio
+Depending on whether your computer is the roc source or the sink, you only should keep the
+appropriate pipewire configuration file. If your computer is the ROC sink, you should remove the
+`.config/pipewire/pipewire.conf.d/roc-source.conf` file.
 
-## display configuration (Xorg)
-Depending on the number and/or orientation of your displays, you should add the appropriate `xrandr` commands to `.config/x11/xinitrc`.
+## Enabling services (systemd)
 
-Example commands:
+MPD:
 
-`xrandr --output DisplayPort-0 --auto`
+```bash
+systemctl --user enable --now mpd.service
+systemctl --user enable --now mpd.socket
+```
 
-`xrandr --output HDMI-A-0 --right-of DisplayPort-0 --rotate right`
+Pipewire:
+
+```bash
+systemctl --user enable --now pipewire.socket
+systemctl --user enable --now pipewire-pulse.socket
+systemctl --user enable --now wireplumber.service
+```
+
+## What's left?
+You still need to install my Neovim configuration and my forks of suckless utilities (`dwm`,
+`dmenu`, `st`, ...).
