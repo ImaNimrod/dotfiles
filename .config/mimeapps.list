@@ -1,0 +1,19 @@
+[Default Applications]
+image/bmp=image.desktop;
+image/gif=image.desktop;
+image/jpeg=image.desktop;
+image/png=image.desktop;
+image/svg+xml=image.desktop;
+image/tiff=image.desktop;
+image/webp=image.desktop;
+application/postscript=pdf.desktop;
+application/pdf=pdf.desktop;
+text/plain=text.desktop;
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+video/hevc=video.desktop
+video/mpeg=video.desktop
+video/mp4=video.desktop
+video/quicktime=video.desktop
+video/x-matroska=video.desktop
