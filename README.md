@@ -6,7 +6,7 @@ nimrod's own dotfiles
 These are the commands for installing all of the required packages on Arch-based Linux distros:
 
 ```bash
-pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber pipewire-roc maim dunst libnotify mpd mpc ncmpcpp htop lm_sensors ripgrep ttf-mononoki-nerd git nsxiv
+pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber maim dunst mpd mpc ncmpcpp htop lm_sensors ripgrep ttf-mononoki-nerd git nsxiv
 
 # AUR packages
 paru -S brave-bin neovim-git
@@ -30,12 +30,6 @@ xrandr --output HDMI-A-0 --right-of DisplayPort-0 --rotate right
 In `.zprofile`, set `MPD_HOST` and `MPD_PORT` to the appropriate values for either the local or
 remote MPD server instance. In `.config/pipewire/pipewire.conf.d/roc-sink.conf`, change the line
 containing `remote.ip` to the IP address of the device to receive audio.
-
-## ROC configuration
-
-Depending on whether your computer is the roc source or the sink, you only should keep the
-appropriate pipewire configuration file. If your computer is the ROC sink, you should remove the
-`.config/pipewire/pipewire.conf.d/roc-source.conf` file.
 
 ## Enabling services (systemd)
 
