@@ -6,7 +6,7 @@
 	padding = 2
 	horizontal_padding = 2
 	transparency = 15
-	font = mononoki Nerd Font 14
+	font = mononoki Nerd Font 18
 	format = "<b>%s</b>\n%b"
 
 [urgency_low]

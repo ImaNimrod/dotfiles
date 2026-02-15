@@ -1,39 +1,28 @@
 #!/bin/sh
 
-### ONLY UNCOMMENT THESE LINES ON NON-SYSTEMD LINUX DISTROS ###
-#
-# audio 
-# pipewire &
-# sleep 0.5
-# pipewire-pulse &
-# wireplumber &
-#
-# mpd
-# [ ! -s ~/.config/mpd/pid ] && mpd
-###############################################################
+if ! systemctl --user is-active --quiet pipewire 2>/dev/null; then
+    pipewire &
+    sleep 0.5
+    wireplumber &
+    pipewire-pulse &
+fi
 
-# display configuration
-############## INSERT YOUR XRANDR COMMANDS HERE ###############
-
-# compositor
-picom &
-
-# notification server
-dunst &
-
-# automatically run screen locker
-xautolock -time 2 -locker slock &
-
-# statusbar
-dwmstatus &
+if ! systemctl --user is-active --quiet mpd 2>/dev/null; then
+    [ ! -s ~/.config/mpd/pid ] && mpd
+fi
 
 # fuck capslock
-setxkbmap -option caps:none
+setxkbmap -option caps:none &
 
-# set wallpaper
-wallpaper
+############## INSERT YOUR XRANDR COMMANDS HERE ###############
+xrandr --output eDP-1 --mode 2560x1600 &
 
-# execute dwm
-while true; do
-    dwm >/dev/null 2>&1
-done
+picom &
+dunst &
+dwmstatus &
+
+xautolock -time 2 -locker slock &
+
+wallpaper &
+
+exec dwm
