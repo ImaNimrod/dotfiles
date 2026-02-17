@@ -6,10 +6,15 @@ nimrod's own dotfiles
 These are the commands for installing all of the required packages on Arch-based Linux distros:
 
 ```bash
-pacman -S xorg-server xorg-xinit xorg-xrandr xwallpaper xclip picom libxft zsh pipewire pipewire-alsa pipewire-pulse wireplumber maim dunst mpd mpc ncmpcpp htop lm_sensors ripgrep ttf-mononoki-nerd git nsxiv
-
-# AUR packages
+# Core packages
+pacman -S xorg-server xorg-xinit xorg-xrandr xclip xwallpaper libxft picom pipewire pipewire-alsa pipewire-pulse wireplumber dunst libnotify git htop maim nsxiv ripgrep ttf-mononoki-nerd zsh
 paru -S brave-bin neovim-git
+
+# Music
+pacman -S mpd mpc ncmpcpp
+
+# Torrenting
+pacman -S transmission-cli wireguard-tools
 ```
 
 ## Display configuration (Xorg)
@@ -28,8 +33,7 @@ xrandr --output HDMI-A-0 --right-of DisplayPort-0 --rotate right
 ## MPD configuration
 
 In `.zprofile`, set `MPD_HOST` and `MPD_PORT` to the appropriate values for either the local or
-remote MPD server instance. In `.config/pipewire/pipewire.conf.d/roc-sink.conf`, change the line
-containing `remote.ip` to the IP address of the device to receive audio.
+remote MPD server instance.
 
 ## Enabling services (systemd)
 
