@@ -6,21 +6,22 @@
     offset = 0x50
     padding = 2
     horizontal_padding = 2
+    transparency = 25
     font = mononoki Nerd Font 18
     format = "<b>%s</b>\n%b"
 
 [urgency_low]
-    background = "#6f00be"
-    foreground = "#ffffff"
+    background = "{color2}" # color2
+    foreground = "{color8}" # color8
     timeout = 3
 
 [urgency_normal]
-    background = "#6f00be"
-    foreground = "#ffffff"
+    background = "{color2}" # color2
+    foreground = "{color15}" # color15
     timeout = 5
 
 [urgency_critical]
-    background = "#fa00a7"
-    foreground = "#ffffff"
-    frame_color = "#ffffff"
+    background = "{color1}" # color1
+    foreground = "{color15}" # color15
+    frame_color = "{color11}" # color11
     timeout = 10

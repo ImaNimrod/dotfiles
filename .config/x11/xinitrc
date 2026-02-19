@@ -23,6 +23,6 @@ dwmstatus &
 
 xautolock -time 2 -locker slock &
 
-wallpaper &
+wallpaper random &
 
-exec dwm
+exec ssh-agent dwm

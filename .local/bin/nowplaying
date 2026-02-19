@@ -1,8 +1,15 @@
 #!/bin/sh
 
-state=$(mpc status -f %state%)
-if [[ "$state" = "playing" || "$state" = "paused" ]]; then
-    notify-send "Now Playing:" "$(mpc -f %name%)"
+set -euo pipefail
+
+current=$(mpc current)
+if [[ -n "$current" ]]; then
+    state=$(mpc status %state%)
+    if [[ "$state" == "paused" ]]; then
+        current="$current (paused)"
+    fi
+
+    notify-send "Now playing:" "$current"
 else
-    notify-send "Nothing currently playing"
+    notify-send "Nothing playing"
 fi

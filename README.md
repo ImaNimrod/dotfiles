@@ -7,8 +7,8 @@ These are the commands for installing all of the required packages on Arch-based
 
 ```bash
 # Core packages
-pacman -S xorg-server xorg-xinit xorg-xrandr xclip xwallpaper libxft picom pipewire pipewire-alsa pipewire-pulse wireplumber dunst libnotify git htop maim nsxiv ripgrep ttf-mononoki-nerd zsh
-paru -S brave-bin neovim-git
+pacman -S xorg-server xorg-xinit xorg-xrandr xclip xdotool xwallpaper libxft picom pipewire pipewire-alsa pipewire-pulse wireplumber dunst libnotify git htop maim nsxiv ripgrep ttf-mononoki-nerd zsh
+paru -S brave-bin neovim-git python-pywal16 xcolor
 
 # Music
 pacman -S mpd mpc ncmpcpp
