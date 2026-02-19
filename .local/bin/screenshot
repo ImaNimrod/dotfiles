@@ -1,19 +1,27 @@
 #!/bin/sh
 
-readonly SCREENSHOT_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/screenshots"
+set -euo pipefail
 
-choice=$(echo -e "Fullscreen (file)\nSelected area (file)\nFullscreen (clipboard)\nSelected area (clipboard)" | dmenu -c -i -l 4 -p "Screenshot:")
+readonly SCREENSHOT_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/screenshots"
+readonly FILE="$SCREENSHOT_DIR/$(date +%Y-%m-%d_%H%M%S).png"
+
+choice=$(echo -e "Fullscreen\nSelected area\nSelected window\nColor picker" | dmenu -c -i -l 4 -p "Screenshot:")
 case $choice in
-    "Fullscreen (file)")
-        maim -q -d 0.2 "$SCREENSHOT_DIR/screenshot-$(date '+%Y-%m-%d_%H.%M.%S').png"
+    "Fullscreen")
+        maim "$FILE"
+        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
         ;;
-    "Selected area (file)")
-        maim -u -s "screenshot-$(date '+%Y-%m-%d_%H.%M.%S').png"
+    "Selected area")
+        maim -u -s "$FILE"
+        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
         ;;
-    "Fullscreen (clipboard)")
-        maim -q -d 0.2 | xclip -sel clip -t image/png
+    "Selected window")
+        maim -i $(xdotool selectwindow) "$FILE"
+        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
         ;;
-    "Selected area (clipboard)")
-        maim -u -s | xclip -sel clip -t image/png
+    "Color picker")
+        color=$(xcolor -f hex)
+        echo $color | xclip -selection clipboard
+        notify-send -h "string:bgcolor:$color" "$color"
         ;;
 esac

@@ -1,9 +1,9 @@
 #!/bin/sh
 
-set -e
+set -euo pipefail
 
-action=$(echo -e "Lock\nReboot\nShutdown" | dmenu -i -c -l 3 -p "Choose an action:")
-case $action in
+action=$(echo -e "Lock\nReboot\nShutdown" | dmenu -c -i -l 3 -p "Choose an action:")
+case "$action" in
     "Lock")
         slock
         ;;
