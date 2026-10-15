@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=File manager
+Exec=/bin/sh -c '~/.local/bin/fileexplorer %u'

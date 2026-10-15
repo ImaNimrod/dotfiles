@@ -1,3 +1,3 @@
 #!/bin/sh
 
-dmenu -c -P -p "$1" <&- && echo
+wofi -d -H 60 -P -p "$1"

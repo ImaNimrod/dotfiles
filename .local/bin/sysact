@@ -2,10 +2,10 @@
 
 set -euo pipefail
 
-action=$(echo -e "Lock\nReboot\nShutdown" | dmenu -c -i -l 3 -p "Choose an action:")
+action=$(echo -e "Lock\nReboot\nShutdown" | wofi -d -L 3 -p "Choose an action:")
 case "$action" in
     "Lock")
-        slock
+        swaylock
         ;;
     "Reboot")
         sudo -A reboot

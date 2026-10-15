@@ -1,7 +1,9 @@
 #!/bin/sh
 
+set -euo pipefail
+
 drives=$(lsblk -nrpo "name,type,size,mountpoint,label" | awk -F ':' '{gsub(/ /,":")}$4!~/\/boot|\/efi|\/home$|SWAP/&&length($4)>1{printf "%s (%s) %s\n",$4,$3,$5}')
 [ -z "$drives" ] && notify-send "No drives to unmount" && exit 1
 
-chosen="$(echo "$drives" | dmenu -i -p "Choose a drive to unmount:")" || exit 1
+chosen="$(echo "$drives" | wofi -d -p "Choose a drive to unmount:")" || exit 1
 sudo -A umount "$(echo $chosen | awk '{print $1}')" && notify-send "Unmounting drive:" "$chosen"

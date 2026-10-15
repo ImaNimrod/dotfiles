@@ -3,25 +3,14 @@
 set -euo pipefail
 
 readonly SCREENSHOT_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/screenshots"
-readonly FILE="$SCREENSHOT_DIR/$(date +%Y-%m-%d_%H%M%S).png"
+readonly FILE="$SCREENSHOT_DIR/$(date +%F_%T).png"
 
-choice=$(echo -e "Fullscreen\nSelected area\nSelected window\nColor picker" | dmenu -c -i -l 4 -p "Screenshot:")
+choice=$(echo -e "Fullscreen\nSelected area\nSelected window" | wofi -d -L 3 -p "Screenshot:" || exit 1)
 case $choice in
     "Fullscreen")
-        maim "$FILE"
-        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
+        grim -g "$(slurp -p)" - | tee "$FILE" | wl-copy
         ;;
     "Selected area")
-        maim -u -s "$FILE"
-        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
-        ;;
-    "Selected window")
-        maim -i $(xdotool selectwindow) "$FILE"
-        xclip -selection clipboard -t image/png -i "$FILE" && notify-send "Screenshot:" "$(basename "$FILE")"
-        ;;
-    "Color picker")
-        color=$(xcolor -f hex)
-        echo $color | xclip -selection clipboard
-        notify-send -h "string:bgcolor:$color" "$color"
+        grim -g "$(slurp -d)" - | tee "$FILE" | wl-copy
         ;;
 esac

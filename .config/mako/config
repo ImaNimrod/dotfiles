@@ -1,0 +1,10 @@
+font=Mononoki Nerd Font 18
+background-color=#6f00ce
+text-color=#bbbbbb
+border-color=#41007a
+border-size=2
+border-radius=5
+padding=10
+default-timeout=5000
+ignore-timeout=0
+anchor=top-right

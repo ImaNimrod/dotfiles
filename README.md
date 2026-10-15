@@ -7,8 +7,14 @@ These are the commands for installing all of the required packages on Arch-based
 
 ```bash
 # Core packages
-pacman -S xorg-server xorg-xinit xorg-xrandr xclip xdotool xwallpaper libxft picom pipewire pipewire-alsa pipewire-pulse wireplumber dunst libnotify git htop maim nsxiv ripgrep ttf-mononoki-nerd zsh librewolf
-paru -S neovim-git python-pywal16 xcolor
+pacman -S git htop neovim pipewire pipewire-alsa pipewire-pulse wireplumber ripgrep zsh
+
+# Wayland packages
+pacman -S wayland wayland-protocols wlroots0.19 wl-clipboard wlr-randr wlsunset wofi swaybg swaylock foot slurp grim ttf-mononoki-nerd
+paru -S wayprompt
+
+# Browser
+pacman -S librewolf
 
 # Music
 pacman -S mpd mpc ncmpcpp
@@ -17,18 +23,10 @@ pacman -S mpd mpc ncmpcpp
 pacman -S transmission-cli wireguard-tools
 ```
 
-## Display configuration (Xorg)
+## Display configuration
 
 Depending on the number and/or orientation of your displays, you should add the appropriate
-`xrandr` commands to `.config/x11/xinitrc`.
-
-Examples: 
-
-```bash
-xrandr --output DisplayPort-0 --auto
-
-xrandr --output HDMI-A-0 --right-of DisplayPort-0 --rotate right
-```
+`wlr-randr` commands to `.local/bin/dwl-startup`.
 
 ## MPD configuration
 

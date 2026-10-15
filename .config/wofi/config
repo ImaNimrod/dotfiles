@@ -1,0 +1,4 @@
+width=600
+location=center
+gtk_dark=true
+show=dmenu

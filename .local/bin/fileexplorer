@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+selected_path="$(realpath "${1:-$HOME}")"
+shift || true
+
+choices=("Open terminal" ".." "$(ls "$selected_path")")
+
+while : ; do
+    choice="$(printf '%s\n' "${choices[@]}" | wofi -d -L 20 -p "$selected_path" "$@")" || exit 1
+    if [ "$choice" == "Open terminal" ]; then
+        cd "$selected_path"
+        "$TERMINAL" && exit 0
+    else
+        selected_path="$(realpath "${selected_path}/${choice}")"
+    fi
+
+    if [ -f "$selected_path" ]; then
+        xdg-open "$selected_path" && exit 0
+    elif [ -d "$selected_path" ]; then
+        choices=("Open terminal" ".." "$(ls "$selected_path")")
+    else
+        selected_path="$(dirname "$selected_path")"
+    fi
+done

@@ -1,0 +1,43 @@
+window {
+    margin: 0px;
+    border: 2px solid #6f00ce;
+    border-radius: 12px;
+    background-color: #222222;
+    font-family: "Mononoki Nerd Font";
+    font-size: 24px;
+}
+
+#outer-box {
+    margin: 12px;
+}
+
+#input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #313244;
+    color: #cdd6f4;
+}
+
+#entry {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+#entry:selected {
+    background: #6f00ce;
+    color: #222222;
+}
+
+#text {
+    color: #bbbbbb;
+}
+
+#text:selected {
+    color: #eeeeee;
+}
+
+#img {
+    margin-right: 8px;
+}
