@@ -52,5 +52,5 @@ systemctl --user enable --now wireplumber.service
 ```
 
 ## What's left?
-You still need to install my Neovim configuration and my forks of suckless utilities (`dwm`,
-`dmenu`, `st`, ...).
+You still need to install my [neovim](https://github.com/ImaNimrod/based-nvim) configuration as well
+as my build of [dwl](https://github.com/ImaNimrod/dwl)
