@@ -5,11 +5,13 @@ set -euo pipefail
 readonly WALLPAPER_DIR="${XDG_DATA_HOME:-$HOME/.local/share/}/wallpapers"
 
 set_wallpaper() {
-    if pgrep -x swaybg >/dev/null 2>&1; then
-        pkill -x swaybg
+    if ! pgrep -x awww-daemon >/dev/null 2>&1; then
+        awww-daemon &
+        disown
+        sleep 0.5
     fi
 
-    swaybg -m fill -i "$1" & disown
+    matugen image "$1" -m dark -t scheme-fidelity --prefer saturation
 }
 
 if [[ -n "${1-}" ]]; then

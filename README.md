@@ -1,4 +1,5 @@
 # dotfiles
+
 nimrod's own dotfiles
 
 ## Installing dependencies
@@ -10,8 +11,8 @@ These are the commands for installing all of the required packages on Arch-based
 pacman -S git htop neovim pipewire pipewire-alsa pipewire-pulse wireplumber ripgrep zsh
 
 # Wayland packages
-pacman -S wayland wayland-protocols wlroots0.19 wl-clipboard wlr-randr wlsunset wofi swaybg swaylock foot slurp grim ttf-mononoki-nerd
-paru -S wayprompt
+pacman -S wayland wayland-protocols wlroots0.19 wl-clipboard wlr-randr wlsunset wofi awww swaylock foot slurp grim ttf-mononoki-nerd
+paru -S matugen wayprompt
 
 # Browser
 pacman -S librewolf
@@ -23,7 +24,7 @@ pacman -S mpd mpc ncmpcpp
 pacman -S transmission-cli wireguard-tools
 ```
 
-## Display configuration
+## Display configuration (Wayland)
 
 Depending on the number and/or orientation of your displays, you should add the appropriate
 `wlr-randr` commands to `.local/bin/dwl-startup`.

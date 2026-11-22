@@ -1,0 +1,24 @@
+[config.wallpaper]
+command = "awww img --transition-type any {{ image }}"
+
+[templates.dwl]
+input_path = "~/.config/matugen/templates/dwl-colors"
+output_path = "~/.cache/dwl-colors"
+post_hook = "pkill -USR2 -x dwl"
+
+[templates.foot]
+input_path = "~/.config/matugen/templates/foot.ini"
+output_path = "~/.config/foot/colors.ini"
+
+[templates.mako]
+input_path = "~/.config/matugen/templates/mako"
+output_path = "~/.config/mako/config"
+post_hook = "makoctl reload"
+
+[templates.swaylock]
+input_path = "~/.config/matugen/templates/swaylock"
+output_path = "~/.config/swaylock/config"
+
+[templates.wofi]
+input_path = "~/.config/matugen/templates/wofi.css"
+output_path = "~/.config/wofi/style.css"
