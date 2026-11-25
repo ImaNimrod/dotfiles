@@ -10,14 +10,14 @@ post_hook = "pkill -USR2 -x dwl"
 input_path = "~/.config/matugen/templates/foot.ini"
 output_path = "~/.config/foot/colors.ini"
 
+[templates.kisslock]
+input_path = "~/.config/matugen/templates/kisslock"
+output_path = "~/.config/kisslock/config"
+
 [templates.mako]
 input_path = "~/.config/matugen/templates/mako"
 output_path = "~/.config/mako/config"
 post_hook = "makoctl reload"
-
-[templates.simple-lock]
-input_path = "~/.config/matugen/templates/simple-lock"
-output_path = "~/.config/simple-lock/config"
 
 [templates.wofi]
 input_path = "~/.config/matugen/templates/wofi.css"

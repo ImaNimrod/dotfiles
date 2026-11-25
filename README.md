@@ -53,4 +53,5 @@ systemctl --user enable --now wireplumber.service
 
 ## What's left?
 You still need to install my [neovim](https://github.com/ImaNimrod/based-nvim) configuration as well
-as my build of [dwl](https://github.com/ImaNimrod/dwl)
+as my build of [dwl](https://github.com/ImaNimrod/dwl), and [kisslock](https://github.com/Greenstorm5417/kisslock),
+an ultra-simple screenlocker.
