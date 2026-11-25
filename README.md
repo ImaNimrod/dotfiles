@@ -11,7 +11,7 @@ These are the commands for installing all of the required packages on Arch-based
 pacman -S git htop neovim pipewire pipewire-alsa pipewire-pulse wireplumber ripgrep zsh
 
 # Wayland packages
-pacman -S wayland wayland-protocols wlroots0.19 wl-clipboard wlr-randr wlsunset wofi awww swaylock foot slurp grim ttf-mononoki-nerd
+pacman -S wayland wayland-protocols wlroots0.19 wl-clipboard wlr-randr wlsunset wofi awww foot slurp grim ttf-mononoki-nerd
 paru -S matugen wayprompt
 
 # Browser

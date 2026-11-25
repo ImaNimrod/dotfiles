@@ -15,9 +15,9 @@ input_path = "~/.config/matugen/templates/mako"
 output_path = "~/.config/mako/config"
 post_hook = "makoctl reload"
 
-[templates.swaylock]
-input_path = "~/.config/matugen/templates/swaylock"
-output_path = "~/.config/swaylock/config"
+[templates.simple-lock]
+input_path = "~/.config/matugen/templates/simple-lock"
+output_path = "~/.config/simple-lock/config"
 
 [templates.wofi]
 input_path = "~/.config/matugen/templates/wofi.css"
