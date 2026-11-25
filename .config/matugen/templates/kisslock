@@ -2,5 +2,4 @@ idle {{colors.surface.default.hex_stripped}}
 input {{colors.primary.default.hex_stripped}}
 fail {{colors.error.default.hex_stripped}}
 fail_ms 1000
-service simple-lock
 clock on
